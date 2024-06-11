@@ -1,0 +1,11 @@
+name = "TensorApproxInvariants"
+uuid = "6d49bad2-ac11-4bef-b57b-27fd6c47471d"
+authors = ["Austin Conner <aconner.vu@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+IterTools = "c8e1da08-722c-5040-9ed9-7db0dc04731e"
+KrylovKit = "0b1a1467-8014-51b9-945f-bf0ae24f4b77"
+LoopVectorization = "bdcacae8-1622-11e9-2a5c-532679323890"
+Revise = "295af30f-e4ad-537b-8983-00126c2a3abe"
+Tullio = "bc48ee85-29a4-5162-ae0b-a64e1601d4bc"
