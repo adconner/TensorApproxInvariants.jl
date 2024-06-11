@@ -1,11 +1,14 @@
 module TensorApproxInvariants
-
 export DerApprox
+
+include("tensors.jl")
+export tensor_tight
 
 using Tullio
 using KrylovKit
+using LoopVectorization
 
-function DerApprox(T,howmany=1)
+function DerApprox(T,howmany=3)
   a,b,c = size(T)
   function A(omega)
     x=reshape(omega[1:a^2],a,a)
@@ -29,8 +32,7 @@ function DerApprox(T,howmany=1)
     
 
   vals, lvecs, rvecs, info = svdsolve((At,A), randn(eltype(T),a^2+b^2+c^2), howmany, :SR) 
-  # vals, lvecs, rvecs, info = svdsolve((A,At), a*b*c, a^2+b^2+c^2, 5, :SR)
-  return (vals,lvecs,rvecs,info,A)
+  return (vals,lvecs,rvecs,info)
 
   # return A,At, randn(a*b*c), randn(a^2+b^2+c^2)
 
